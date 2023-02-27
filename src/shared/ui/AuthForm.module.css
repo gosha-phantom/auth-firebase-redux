@@ -1,0 +1,6 @@
+.AuthForm {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    gap: 1rem;
+}
