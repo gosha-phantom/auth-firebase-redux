@@ -1,5 +1,5 @@
-import {Link} from 'react-router-dom';
-import {Login} from '../widgets/Login';
+import { Link } from 'react-router-dom';
+import { Login } from 'widgets/Login';
 
 export const LoginPage = () => {
     return (

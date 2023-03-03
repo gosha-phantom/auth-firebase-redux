@@ -1,5 +1,5 @@
-import {Link} from 'react-router-dom';
-import {Register} from '../widgets/Register';
+import { Link } from 'react-router-dom';
+import { Register } from '../widgets/Register';
 
 export const RegisterPage = () => {
 

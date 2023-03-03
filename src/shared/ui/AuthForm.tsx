@@ -1,7 +1,13 @@
 import { useState } from 'react';
+// @ts-ignore
 import classes from './AuthForm.module.css'
 
-export const AuthForm = (props) => {
+interface AuthFormProps {
+    title: string;
+    handleBtnClick: (email: string, password: string) => void;
+}
+
+export const AuthForm = (props: AuthFormProps) => {
     const { title, handleBtnClick } = props;
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

@@ -1,16 +1,16 @@
 import { AuthForm } from 'shared/ui/AuthForm';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setUser } from 'features/User/slices/userSlice';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword  } from 'firebase/auth';
+import { useAppDispatch } from 'shared/hooks';
 
-export const Login = () => {
-    const dispatch = useDispatch();
+export const Register = () => {
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
-    const handleBtnLogin = (email, password) => {
+    const handleBtnRegister = (email: string, password: string) => {
         const auth = getAuth();
-        signInWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPassword(auth, email, password)
             .then(({user}) => {
                 console.log(user);
                 dispatch(setUser({
@@ -20,16 +20,13 @@ export const Login = () => {
                 }));
                 navigate('/');
             })
-            .catch((error) => {
-                console.error(error);
-                alert('Invalid User!');
-            });
+            .catch(console.error);
     };
 
     return (
         <AuthForm
-            title={'Login'}
-            handleBtnClick={handleBtnLogin}
+            title={'Register'}
+            handleBtnClick={handleBtnRegister}
         />
     );
 };

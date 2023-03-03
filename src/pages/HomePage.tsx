@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from 'shared/hooks/useAuth';
-import { useDispatch } from 'react-redux';
 import { removeUser } from 'features/User/slices/userSlice';
-import {useEffect} from 'react';
+import { useEffect } from 'react';
+import { useAppDispatch } from 'shared/hooks';
 
 export const HomePage = () => {
     const { isAuth } = useAuth();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         if(!isAuth) { return navigate('/login') }
